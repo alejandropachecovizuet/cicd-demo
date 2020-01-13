@@ -1,0 +1,14 @@
+---
+- hosts: kubehost
+  tasks:
+    - name: Hello World
+      debug: msg="Deploying app ..."
+    - name: Stop container
+      shell: docker stop cicd-demo
+      ignore_errors: yes
+    - name: Deleting container
+      shell: docker rm cicd-demo
+      ignore_errors: yes
+    - name: run container
+      raw: docker run -p 8090:8090 --detach --name cicd-demo dockerhub:5000/interware/cicd-demo:latest
+      

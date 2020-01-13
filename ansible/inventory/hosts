@@ -1,0 +1,4 @@
+[local]
+cicd=172.20.0.1
+localhost
+kubehost

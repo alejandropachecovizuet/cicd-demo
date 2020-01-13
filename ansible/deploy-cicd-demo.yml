@@ -1,0 +1,10 @@
+---
+- hosts: kubehost
+  tasks:
+    - name: Hello World
+      debug: msg="Hello World"
+    - name: Create pod
+      shell: /home/axis/opt/kubernetes/bin/kubectl run cicd-demo --image=dockerhub:5000/interware/cicd-demo:0.1.0 --port=8090
+    - name: Create service
+      raw: /home/axis/opt/kubernetes/bin/kubectl expose deployment/cicd-demo --type="NodePort" --port 8090
+      
