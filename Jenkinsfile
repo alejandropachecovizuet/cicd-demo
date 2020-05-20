@@ -57,7 +57,6 @@ pipeline {
         echo 'Publishing'
         nexusPublisher nexusInstanceId: 'nexus-devops-release', \
           nexusRepositoryId: 'devops-release', \
-          tagName: 'cicd-demo',
           packages: [[$class: 'MavenPackage', \
                 mavenAssetList: [[classifier: '', \
                           extension: '', \
